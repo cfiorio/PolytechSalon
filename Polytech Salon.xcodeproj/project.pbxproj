@@ -18,7 +18,19 @@
 		0731D43E18CCA32300373AE1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0731D42318CCA32300373AE1 /* Foundation.framework */; };
 		0731D43F18CCA32300373AE1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0731D42718CCA32300373AE1 /* UIKit.framework */; };
 		0731D44718CCA32300373AE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0731D44518CCA32300373AE1 /* InfoPlist.strings */; };
-		0731D44918CCA32300373AE1 /* Polytech_SalonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D44818CCA32300373AE1 /* Polytech_SalonTests.m */; };
+		0731D45518CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */; };
+		0731D45618CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */; };
+		0731D45918CCA7B900373AE1 /* PSDocType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45818CCA7B900373AE1 /* PSDocType.m */; };
+		0731D45A18CCA7B900373AE1 /* PSDocType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45818CCA7B900373AE1 /* PSDocType.m */; };
+		0731D45D18CCBB4200373AE1 /* PSDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45C18CCBB4200373AE1 /* PSDocument.m */; };
+		0731D45E18CCBB4200373AE1 /* PSDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45C18CCBB4200373AE1 /* PSDocument.m */; };
+		0731D46118CCFCEF00373AE1 /* PSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46018CCFCEF00373AE1 /* PSArea.m */; };
+		0731D46218CCFCEF00373AE1 /* PSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46018CCFCEF00373AE1 /* PSArea.m */; };
+		0731D46518CCFF0E00373AE1 /* PSPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46418CCFF0E00373AE1 /* PSPool.m */; };
+		0731D46618CCFF0E00373AE1 /* PSPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46418CCFF0E00373AE1 /* PSPool.m */; };
+		0731D46918CD032A00373AE1 /* PSLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46818CD032A00373AE1 /* PSLibrary.m */; };
+		0731D46A18CD032A00373AE1 /* PSLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46818CD032A00373AE1 /* PSLibrary.m */; };
+		0731D47218CDAD2E00373AE1 /* Polytech_SalonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D47018CDAD2E00373AE1 /* Polytech_SalonTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +59,20 @@
 		0731D43C18CCA32300373AE1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0731D44418CCA32300373AE1 /* Polytech SalonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Polytech SalonTests-Info.plist"; sourceTree = "<group>"; };
 		0731D44618CCA32300373AE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0731D44818CCA32300373AE1 /* Polytech_SalonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Polytech_SalonTests.m; sourceTree = "<group>"; };
+		0731D45218CCA68F00373AE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0731D45318CCA68F00373AE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Polytech_Salon.storyboard; sourceTree = "<group>"; };
+		0731D45718CCA7B900373AE1 /* PSDocType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDocType.h; sourceTree = "<group>"; usesTabs = 0; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0731D45818CCA7B900373AE1 /* PSDocType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDocType.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0731D45B18CCBB4200373AE1 /* PSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDocument.h; sourceTree = "<group>"; };
+		0731D45C18CCBB4200373AE1 /* PSDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDocument.m; sourceTree = "<group>"; };
+		0731D45F18CCFCEF00373AE1 /* PSArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSArea.h; sourceTree = "<group>"; };
+		0731D46018CCFCEF00373AE1 /* PSArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSArea.m; sourceTree = "<group>"; };
+		0731D46318CCFF0E00373AE1 /* PSPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPool.h; sourceTree = "<group>"; };
+		0731D46418CCFF0E00373AE1 /* PSPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPool.m; sourceTree = "<group>"; };
+		0731D46718CD032A00373AE1 /* PSLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLibrary.h; sourceTree = "<group>"; };
+		0731D46818CD032A00373AE1 /* PSLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLibrary.m; sourceTree = "<group>"; };
+		0731D47018CDAD2E00373AE1 /* Polytech_SalonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polytech_SalonTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +102,17 @@
 		0731D41718CCA32300373AE1 = {
 			isa = PBXGroup;
 			children = (
+				0731D46718CD032A00373AE1 /* PSLibrary.h */,
+				0731D46818CD032A00373AE1 /* PSLibrary.m */,
+				0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */,
+				0731D45718CCA7B900373AE1 /* PSDocType.h */,
+				0731D45818CCA7B900373AE1 /* PSDocType.m */,
+				0731D45B18CCBB4200373AE1 /* PSDocument.h */,
+				0731D45C18CCBB4200373AE1 /* PSDocument.m */,
+				0731D45F18CCFCEF00373AE1 /* PSArea.h */,
+				0731D46018CCFCEF00373AE1 /* PSArea.m */,
+				0731D46318CCFF0E00373AE1 /* PSPool.h */,
+				0731D46418CCFF0E00373AE1 /* PSPool.m */,
 				0731D42918CCA32300373AE1 /* Polytech Salon */,
 				0731D44218CCA32300373AE1 /* Polytech SalonTests */,
 				0731D42218CCA32300373AE1 /* Frameworks */,
@@ -129,7 +165,7 @@
 		0731D44218CCA32300373AE1 /* Polytech SalonTests */ = {
 			isa = PBXGroup;
 			children = (
-				0731D44818CCA32300373AE1 /* Polytech_SalonTests.m */,
+				0731D47018CDAD2E00373AE1 /* Polytech_SalonTests.m */,
 				0731D44318CCA32300373AE1 /* Supporting Files */,
 			);
 			path = "Polytech SalonTests";
@@ -192,6 +228,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Fiorio Christophe";
 				TargetAttributes = {
+					0731D41F18CCA32300373AE1 = {
+						DevelopmentTeam = CA7S44LH6S;
+					};
 					0731D43A18CCA32300373AE1 = {
 						TestTargetID = 0731D41F18CCA32300373AE1;
 					};
@@ -203,6 +242,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = 0731D41718CCA32300373AE1;
 			productRefGroup = 0731D42118CCA32300373AE1 /* Products */;
@@ -221,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0731D42E18CCA32300373AE1 /* InfoPlist.strings in Resources */,
+				0731D45518CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */,
 				0731D43618CCA32300373AE1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0731D45618CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */,
 				0731D44718CCA32300373AE1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0731D43018CCA32300373AE1 /* main.m in Sources */,
+				0731D45D18CCBB4200373AE1 /* PSDocument.m in Sources */,
+				0731D46518CCFF0E00373AE1 /* PSPool.m in Sources */,
+				0731D45918CCA7B900373AE1 /* PSDocType.m in Sources */,
+				0731D46918CD032A00373AE1 /* PSLibrary.m in Sources */,
+				0731D46118CCFCEF00373AE1 /* PSArea.m in Sources */,
 				0731D43418CCA32300373AE1 /* PSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0731D44918CCA32300373AE1 /* Polytech_SalonTests.m in Sources */,
+				0731D46618CCFF0E00373AE1 /* PSPool.m in Sources */,
+				0731D45E18CCBB4200373AE1 /* PSDocument.m in Sources */,
+				0731D47218CDAD2E00373AE1 /* Polytech_SalonTests.m in Sources */,
+				0731D45A18CCA7B900373AE1 /* PSDocType.m in Sources */,
+				0731D46A18CD032A00373AE1 /* PSLibrary.m in Sources */,
+				0731D46218CCFCEF00373AE1 /* PSArea.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +320,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0731D42D18CCA32300373AE1 /* en */,
+				0731D45218CCA68F00373AE1 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -276,6 +329,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0731D44618CCA32300373AE1 /* en */,
+				0731D45318CCA68F00373AE1 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -362,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polytech Salon/Polytech Salon-Prefix.pch";
 				INFOPLIST_FILE = "Polytech Salon/Polytech Salon-Info.plist";
@@ -375,6 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polytech Salon/Polytech Salon-Prefix.pch";
 				INFOPLIST_FILE = "Polytech Salon/Polytech Salon-Info.plist";

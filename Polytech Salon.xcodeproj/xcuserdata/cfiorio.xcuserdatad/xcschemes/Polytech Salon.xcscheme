@@ -37,6 +37,11 @@
                BlueprintName = "Polytech SalonTests"
                ReferencedContainer = "container:Polytech Salon.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "Polytech_SalonTests/testExample">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
