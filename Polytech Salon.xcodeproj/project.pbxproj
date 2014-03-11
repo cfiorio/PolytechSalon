@@ -31,6 +31,8 @@
 		0731D46918CD032A00373AE1 /* PSLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46818CD032A00373AE1 /* PSLibrary.m */; };
 		0731D46A18CD032A00373AE1 /* PSLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46818CD032A00373AE1 /* PSLibrary.m */; };
 		0731D47218CDAD2E00373AE1 /* Polytech_SalonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D47018CDAD2E00373AE1 /* Polytech_SalonTests.m */; };
+		0760E1E118CDF0E5006133F3 /* PSPoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E1E018CDF0E5006133F3 /* PSPoolTableViewController.m */; };
+		0760E1E418CDF1A4006133F3 /* PSPoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E1E318CDF1A4006133F3 /* PSPoolCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,10 @@
 		0731D46718CD032A00373AE1 /* PSLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLibrary.h; sourceTree = "<group>"; };
 		0731D46818CD032A00373AE1 /* PSLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLibrary.m; sourceTree = "<group>"; };
 		0731D47018CDAD2E00373AE1 /* Polytech_SalonTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Polytech_SalonTests.m; sourceTree = "<group>"; };
+		0760E1DF18CDF0E5006133F3 /* PSPoolTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoolTableViewController.h; sourceTree = "<group>"; };
+		0760E1E018CDF0E5006133F3 /* PSPoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoolTableViewController.m; sourceTree = "<group>"; };
+		0760E1E218CDF1A4006133F3 /* PSPoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoolCell.h; sourceTree = "<group>"; };
+		0760E1E318CDF1A4006133F3 /* PSPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoolCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +108,13 @@
 		0731D41718CCA32300373AE1 = {
 			isa = PBXGroup;
 			children = (
+				0760E1E218CDF1A4006133F3 /* PSPoolCell.h */,
+				0760E1E318CDF1A4006133F3 /* PSPoolCell.m */,
 				0731D46718CD032A00373AE1 /* PSLibrary.h */,
 				0731D46818CD032A00373AE1 /* PSLibrary.m */,
 				0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */,
+				0760E1DF18CDF0E5006133F3 /* PSPoolTableViewController.h */,
+				0760E1E018CDF0E5006133F3 /* PSPoolTableViewController.m */,
 				0731D45718CCA7B900373AE1 /* PSDocType.h */,
 				0731D45818CCA7B900373AE1 /* PSDocType.m */,
 				0731D45B18CCBB4200373AE1 /* PSDocument.h */,
@@ -286,6 +296,8 @@
 				0731D45D18CCBB4200373AE1 /* PSDocument.m in Sources */,
 				0731D46518CCFF0E00373AE1 /* PSPool.m in Sources */,
 				0731D45918CCA7B900373AE1 /* PSDocType.m in Sources */,
+				0760E1E118CDF0E5006133F3 /* PSPoolTableViewController.m in Sources */,
+				0760E1E418CDF1A4006133F3 /* PSPoolCell.m in Sources */,
 				0731D46918CD032A00373AE1 /* PSLibrary.m in Sources */,
 				0731D46118CCFCEF00373AE1 /* PSArea.m in Sources */,
 				0731D43418CCA32300373AE1 /* PSAppDelegate.m in Sources */,
@@ -500,6 +512,7 @@
 				0731D44E18CCA32300373AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0731D44F18CCA32300373AE1 /* Build configuration list for PBXNativeTarget "Polytech SalonTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +521,7 @@
 				0731D45118CCA32300373AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

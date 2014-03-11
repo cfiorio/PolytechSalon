@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSLibrary.h"
 
 @interface PSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic,readonly,strong) PSLibrary* library;
 
 @end
