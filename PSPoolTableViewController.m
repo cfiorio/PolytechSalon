@@ -48,7 +48,7 @@ static NSArray* areaKeys=nil;
 {
     [super viewDidLoad];
 
-//    self->_library=[(PSAppDelegate*)[[UIApplication sharedApplication] delegate] library];
+    self->_library=[(PSAppDelegate*)[[UIApplication sharedApplication] delegate] library];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

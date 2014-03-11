@@ -7,7 +7,6 @@
         <!--Pool Table View Controller-->
         <scene sceneID="OIn-e6-fu0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AZ4-tm-5vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="g1T-eq-7Vn" customClass="PSPoolTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LRP-Ee-N7b">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -49,6 +48,7 @@
                         </connections>
                     </tableView>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AZ4-tm-5vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-154" y="-405"/>
         </scene>
