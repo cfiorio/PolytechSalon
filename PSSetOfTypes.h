@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PSSetOfObjectsWithName.h"
+#import "PSSetIndexedByName.h"
 #import "PSType.h"
 
-@interface PSSetOfTypes : PSSetOfObjectsWithName
+@interface PSSetOfTypes : PSSetIndexedByName
 
 - (id) init;
 - (id) initWithArray:(NSArray*)anArray;

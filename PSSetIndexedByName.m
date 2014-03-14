@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Fiorio Christophe. All rights reserved.
 //
 
-#import "PSSetOfObjectsWithName.h"
+#import "PSSetIndexedByName.h"
 
-@implementation PSSetOfObjectsWithName
+@implementation PSSetIndexedByName
 
 - (id)init
 {
@@ -37,13 +37,12 @@
 }
 
 // *************************************************************************************
-// Add/remove object in set
-
+// Add object in set
 
 // add an object into the set (the private NSDictionnary instance variable), associated key is the object name
 // register itself as an observer of name property of object inserted
 // Exception thrown: object of this name already present in set
-- (void)addObject:(id)object ofName:(NSString *)aName{
+- (id)addObject:(NSObject<PSObjectWithName>*)object forName:(NSString *)aName{
     
     if([self->dico objectForKey:aName]!=nil){
         @throw [NSException
@@ -53,6 +52,7 @@
         [self->dico setObject:object forKey:aName];
         [object addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionOld context:nil];
     }
+    return object;
 }
 // if name property of an object belonging to the set is changed, then key is changed accordingly the new name
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
@@ -62,9 +62,14 @@
         [self->dico setObject:object forKey:[object name]];
     }
 }
+
+
+// *************************************************************************************
+// remove object from set
+
 // remove object with the given name of the set, remove also self as observer of property name
 // Exception thrown: object of this name not present in set
-- (id)removeObjectOfName:(NSString *)aName{
+- (id)removeObjectForName:(NSString *)aName{
     id obj=[self->dico objectForKey:aName];
     if(obj==nil){
         @throw [NSException exceptionWithName:@"remove object from set failed" reason:@"object of this name not present in set" userInfo:nil];
@@ -78,7 +83,7 @@
 // remove a given object with a given name of the set, remove also self as observer of property name
 // Exception thrown: object of this name not present in set
 // Exception thrown: object of this name present in set is not the one to remove
-- (id)removeObject:(id)object ofName:(NSString *)aName{
+- (id)removeObject:(id)object forName:(NSString *)aName{
     id obj=[self->dico objectForKey:aName];
     if(obj==nil){
         @throw [NSException exceptionWithName:@"remove object from set failed" reason:@"object of this name not present in set" userInfo:nil];
@@ -92,16 +97,38 @@
     }
     return obj;
 }
+
+// remove a given object from the set, remove also self as observer of property name
+// return object removed
+// Exception thrown: object of this name not present in set
+// Exception thrown: object of this name present in set is not the one to remove
+- (id)removeObject:(id)object{
+    return [self removeObject:object forName:[object name]];
+}
+
+
+// *************************************************************************************
+// contains
+
 // check if an object with a given name belongs to the set
-- (BOOL)containsObjectOfName:(NSString *)aName{
+- (BOOL)containsObjectForName:(NSString *)aName{
     return ([self->dico objectForKey:aName] != nil);
 }
 // check if a given object with a given name belongs to the set
-- (BOOL)containsObject:(id)object ofName:(NSString *)aName{
+- (BOOL)containsObject:(id)object forName:(NSString *)aName{
     return ([self->dico objectForKey:aName] == object);
 }
+// check if a given object belongs to the set
+// Exception thrown: object in the set has not the same name
+- (BOOL)containsObject:(id<PSObjectWithName>)object{
+    return [self containsObject:object forName:[object name]];
+}
+
+// *************************************************************************************
+// get
+
 // return object of name aName contained in the set ; return nil no object of the set has this name
-- (id) objectOfName:(NSString*)aName{
+- (id) objectForName:(NSString*)aName{
     return [self->dico objectForKey:aName];
 }
 
@@ -136,6 +163,13 @@
         }
     }];
     return anArray;
+}
+
+// remove all object of the set; useful to unregister observers
+- (void) empty{
+    for(id object in self->dico){
+        [self removeObject:object];
+    }
 }
 
 @end

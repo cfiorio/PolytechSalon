@@ -32,14 +32,14 @@
 
 // add a PSType into the set
 - (void)addType:(PSType*) aType{
-    [super addObject:aType ofName:[aType name]];
+    [super addObject:aType forName:[aType name]];
 }
 
 // add a newly created PSType of name aName into the set
 // return the newly created PSType
 - (PSType*) addTypeOfName:(NSString*)aName{
     PSType* docType=[[PSType alloc] initWithName:aName];
-    [super addObject:docType ofName:aName];
+    [super addObject:docType forName:aName];
     return docType;
 }
 
@@ -50,7 +50,7 @@
 // return PSType removed
 // Exception thrown: object of this name not present in set
 - (PSType*) removeTypeOfName:(NSString*)aName{
-    PSType* docType = [super removeObjectOfName:aName];
+    PSType* docType = [super removeObjectForName:aName];
     return docType;
 }
 
@@ -59,7 +59,7 @@
 // Exception thrown: object of this name not present in set - thrown if PSType with same name as the one in argument is not present in the set
 // Exception thrown: object of this name present in set is not the one to remove - thrown if PSType with same name as the one in argument is not the on given in argument
 - (PSType*)removeType:(PSType*) aType{
-    return [super removeObject:aType ofName:[aType name]];
+    return [super removeObject:aType forName:[aType name]];
 }
 
 
@@ -68,12 +68,12 @@
 
 // check if a given PSType belongs to the set
 - (BOOL)containsType:(PSType*) aType{
-    return [super containsObject:aType ofName:[aType name]];
+    return [super containsObject:aType forName:[aType name]];
 }
 
 // check if a PSType with aName belongs to the set
 - (BOOL)containsTypeOfName:(NSString*)aName{
-    return ([super objectOfName:aName]!=nil);
+    return ([super objectForName:aName]!=nil);
 }
 
 
@@ -82,7 +82,7 @@
 
 // return PSType of name aName contained in the set ; return nil no PSType of the set has this name
 - (PSType*) typeOfName:(NSString*)aName{
-    return [super objectOfName:aName];
+    return [super objectForName:aName];
 }
 
 

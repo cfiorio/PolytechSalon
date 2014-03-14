@@ -14,13 +14,14 @@
 @synthesize type=_type;
 @synthesize area=_area;
 
-- (id)initWithName:(NSString *)name type:(PSType*) type andArea:(PSArea*) area
+- (id)initWithName:(NSString *)aName type:(PSType*)aType andArea:(PSArea*)anArea
 {
     self = [super init];
     if (self) {
-        _name = [name copy];
-        _type = type;
-        _area = area;
+        _name = aName;
+        _area = nil;
+        _type = aType;
+        if(anArea!=nil) self.area=anArea;
     }
     return self;
 }
@@ -29,5 +30,14 @@
 {
     return [self initWithName:name type:type andArea:nil];
 }
+
+- (void) setArea:(PSArea *)area{
+    if(self->_area!=nil){
+        [self->_area removeDocument:self];
+    }
+    self->_area=area;
+    [area addDocument:self];
+}
+
 
 @end

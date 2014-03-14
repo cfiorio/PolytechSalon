@@ -7,23 +7,73 @@
 //
 
 #import "PSArea.h"
+#import "PSDocument.h"
 
 @implementation PSArea
 
 @synthesize name=_name;
 @synthesize docsList=_docsList;
 
-- (id)initWithName:(NSString *)name andDocsList:(NSMutableSet *)list
+- (id)initWithName:(NSString *)aName
 {
     self = [super init];
     if (self) {
-        _name = [name copy];
-        _docsList = list;
+        _name = aName;
+        _docsList = [NSMutableSet setWithCapacity:10];
     }
     return self;
 }
-- (id)initWithName:(NSString *)name
+- (id)initWithName:(NSString *)aName andDocsSet:(NSSet *)list
 {
-    return [[PSArea alloc] initWithName:name andDocsList:[NSMutableSet setWithCapacity:10]];
+    self = [self initWithName:aName];
+    if (self) {
+        for(PSDocument* doc in list){
+            [self addDocument:doc];
+        }
+    }
+    return self;
 }
+- (id)initWithName:(NSString *)aName andDocsArray:(NSArray *)list
+{
+    self = [self initWithName:aName];
+    if (self) {
+        for(PSDocument* doc in list){
+            [self addDocument:doc];
+        }
+    }
+    return self;
+}
+
+// add a document to this area
+// if doc hasn't yet an area, add self as area of this doc
+// Exception thrown: Add document in area failed if document added has another are
+- (id) addDocument:(PSDocument*)doc{
+    if ([doc area]==nil) {
+        [doc setArea:self];
+    }
+    else if([doc area]!=self){
+        @throw [NSException
+                exceptionWithName:@"Add document in area failed" reason:@"add document in area with another area" userInfo:nil];
+    }
+    else if(![self.docsList containsObject:doc]){
+        [self.docsList addObject:doc];
+    }
+    return doc;
+}
+// remove a document from this area
+// remove also this area as area of this document
+- (id) removeDocument:(PSDocument*)doc{
+    [self.docsList removeObject:doc];
+    [doc setArea:nil];
+    return doc;
+}
+// get an area of all documents of this area
+- (NSArray*) allDocuments{
+    return [self.docsList allObjects];
+}
+// get a sorted by document name of all documents of this area
+- (NSArray*) allDocumentsSortedByName{
+    return [self.docsList sortedArrayByPropertyName:@"name"];
+}
+
 @end

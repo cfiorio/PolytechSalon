@@ -39,8 +39,8 @@
 		0760E27318D04144006133F3 /* PSSetOfTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27118D04144006133F3 /* PSSetOfTypes.m */; };
 		0760E27618D04A1B006133F3 /* PSSetOfAreas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27518D04A1B006133F3 /* PSSetOfAreas.m */; };
 		0760E27718D04A1B006133F3 /* PSSetOfAreas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27518D04A1B006133F3 /* PSSetOfAreas.m */; };
-		0760E27A18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */; };
-		0760E27B18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */; };
+		0760E27A18D0B9A0006133F3 /* PSSetIndexedByName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */; };
+		0760E27B18D0B9A0006133F3 /* PSSetIndexedByName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */; };
 		0760E27E18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
 		0760E27F18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
 /* End PBXBuildFile section */
@@ -99,10 +99,11 @@
 		0760E27118D04144006133F3 /* PSSetOfTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetOfTypes.m; sourceTree = "<group>"; };
 		0760E27418D04A1B006133F3 /* PSSetOfAreas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSetOfAreas.h; sourceTree = "<group>"; };
 		0760E27518D04A1B006133F3 /* PSSetOfAreas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetOfAreas.m; sourceTree = "<group>"; };
-		0760E27818D0B9A0006133F3 /* PSSetOfObjectsWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSetOfObjectsWithName.h; sourceTree = "<group>"; };
-		0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetOfObjectsWithName.m; sourceTree = "<group>"; };
+		0760E27818D0B9A0006133F3 /* PSSetIndexedByName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSetIndexedByName.h; sourceTree = "<group>"; };
+		0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetIndexedByName.m; sourceTree = "<group>"; };
 		0760E27C18D1EF42006133F3 /* NSMutableSet+PSSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+PSSet.h"; sourceTree = "<group>"; };
 		0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+PSSet.m"; sourceTree = "<group>"; };
+		07B5554518D2FE0900EBA151 /* PSObjectWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSObjectWithName.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +227,9 @@
 				0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */,
 				0760E27018D04143006133F3 /* PSSetOfTypes.h */,
 				0760E27118D04144006133F3 /* PSSetOfTypes.m */,
-				0760E27818D0B9A0006133F3 /* PSSetOfObjectsWithName.h */,
-				0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */,
+				0760E27818D0B9A0006133F3 /* PSSetIndexedByName.h */,
+				0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */,
+				07B5554518D2FE0900EBA151 /* PSObjectWithName.h */,
 			);
 			name = "Business classes";
 			sourceTree = "<group>";
@@ -358,7 +360,7 @@
 				0731D45D18CCBB4200373AE1 /* PSDocument.m in Sources */,
 				0760E26318D03A95006133F3 /* CFDefaultModelDelegateObserved.m in Sources */,
 				0731D46518CCFF0E00373AE1 /* PSPool.m in Sources */,
-				0760E27A18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */,
+				0760E27A18D0B9A0006133F3 /* PSSetIndexedByName.m in Sources */,
 				0760E26418D03A95006133F3 /* CFDefaultModelObserved.m in Sources */,
 				0731D45918CCA7B900373AE1 /* PSType.m in Sources */,
 				0760E1E118CDF0E5006133F3 /* PSPoolTableViewController.m in Sources */,
@@ -378,7 +380,7 @@
 			files = (
 				0760E27F18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */,
 				0731D46618CCFF0E00373AE1 /* PSPool.m in Sources */,
-				0760E27B18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */,
+				0760E27B18D0B9A0006133F3 /* PSSetIndexedByName.m in Sources */,
 				0731D45E18CCBB4200373AE1 /* PSDocument.m in Sources */,
 				0731D47218CDAD2E00373AE1 /* Polytech_SalonTests.m in Sources */,
 				0731D45A18CCA7B900373AE1 /* PSType.m in Sources */,

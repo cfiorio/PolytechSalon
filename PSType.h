@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSObjectWithName.h"
 
-@interface PSType : NSObject
+@interface PSType : NSObject<PSObjectWithName>
 
 @property (nonatomic,copy) NSString* name;
 

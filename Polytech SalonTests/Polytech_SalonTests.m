@@ -13,7 +13,7 @@
 #import "PSDocument.h"
 #import "PSPool.h"
 #import "PSLibrary.h"
-#import "PSSetOfObjectsWithName.h"
+#import "PSSetIndexedByName.h"
 
 @interface Polytech_SalonTests : XCTestCase
 
@@ -33,7 +33,7 @@
     [super tearDown];
 }
 
-- (void)testPSDocTypeCreation
+- (void)testPSTypeCreation
 {
     PSType* docType = [[PSType alloc] initWithName:@"URL type"];
     XCTAssertEqualObjects(docType.name, @"URL type");
@@ -45,10 +45,19 @@
     PSArea* area1 = [[PSArea alloc] initWithName:@"IG"];
     XCTAssertEqualObjects(area1.name, @"IG");
     // initialization with set test
-    NSMutableSet* set = [NSMutableSet setWithObjects:@"Doc1",@"Doc2",@"Doc3", nil];
-    PSArea* area2 = [[PSArea alloc] initWithName:@"IG" andDocsList:set];
+    PSType* aType = [[PSType alloc] initWithName:@"type"];
+    NSArray* tabDocs = [NSArray arrayWithObjects:
+                        [[PSDocument alloc] initWithName:@"Doc1" andType:aType],
+                        [[PSDocument alloc] initWithName:@"Doc2" andType:aType],
+                        [[PSDocument alloc] initWithName:@"Doc3" andType:aType],
+                        nil];
+    NSMutableSet* set = [NSMutableSet setWithArray:tabDocs];
+    PSArea* area2 = [[PSArea alloc] initWithName:@"IG" andDocsSet:set];
     XCTAssertEqualObjects(area2.name, @"IG");
     XCTAssertEqualObjects(area2.docsList, set);
+    XCTAssertEqualObjects([(PSDocument*)[tabDocs objectAtIndex:0] area],area2);
+    XCTAssertEqualObjects([(PSDocument*)[tabDocs objectAtIndex:1] area],area2);
+    XCTAssertEqualObjects([(PSDocument*)[tabDocs objectAtIndex:2] area],area2);
 }
 
 - (void)testPSDocumentCreation
@@ -146,7 +155,7 @@
 
 - (void)testPSSetOfObjectsWithNameInit
 {
-    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] init];
+    PSSetIndexedByName* set = [[PSSetIndexedByName alloc] init];
     XCTAssert(set != nil);
     XCTAssert([set count]==0);
 }
@@ -158,7 +167,7 @@
                         [[PSType alloc] initWithName:@"type02"],
                         [[PSType alloc] initWithName:@"type03"],
                         [[PSType alloc] initWithName:@"type04"], nil];
-    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] initWithArray:anArray];
+    PSSetIndexedByName* set = [[PSSetIndexedByName alloc] initWithArray:anArray];
     XCTAssert(set != nil);
     XCTAssert([set count]==4);
     NSArray* names = [set allNames];
@@ -170,7 +179,7 @@
     XCTAssert([anArray containsObject:[objects objectAtIndex:1]]);
     XCTAssert([anArray containsObject:[objects objectAtIndex:2]]);
     XCTAssert([anArray containsObject:[objects objectAtIndex:3]]);
-    id obj = [set objectOfName:@"type03"];
+    id obj = [set objectForName:@"type03"];
     XCTAssert(obj==[anArray objectAtIndex:2]);
     XCTAssertEqualObjects(obj,[anArray objectAtIndex:2]);
     NSArray* sortedObjects = [set sortedArrayByName];
@@ -189,7 +198,7 @@
                    [[PSType alloc] initWithName:@"type02"],
                    [[PSType alloc] initWithName:@"type03"],
                    [[PSType alloc] initWithName:@"type04"], nil];
-    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] initWithSet:aSet];
+    PSSetIndexedByName* set = [[PSSetIndexedByName alloc] initWithSet:aSet];
     XCTAssert(set != nil);
     XCTAssert([set count]==4);
     NSArray* names = [set allNames];
@@ -210,39 +219,39 @@
                         [[PSType alloc] initWithName:@"type02"],
                         [[PSType alloc] initWithName:@"type03"],
                         [[PSType alloc] initWithName:@"type04"], nil];
-    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] init];
+    PSSetIndexedByName* set = [[PSSetIndexedByName alloc] init];
     XCTAssert(set != nil);
     XCTAssert([set count]==0);
-    [set addObject:[anArray objectAtIndex:0] ofName:@"type01"];
+    [set addObject:[anArray objectAtIndex:0] forName:@"type01"];
     XCTAssert([set count]==1);
-    [set addObject:[anArray objectAtIndex:1] ofName:@"type02"];
+    [set addObject:[anArray objectAtIndex:1] forName:@"type02"];
     XCTAssert([set count]==2);
-    [set addObject:[anArray objectAtIndex:2] ofName:@"type03"];
+    [set addObject:[anArray objectAtIndex:2] forName:@"type03"];
     XCTAssert([set count]==3);
-    [set addObject:[anArray objectAtIndex:3] ofName:@"type04"];
+    [set addObject:[anArray objectAtIndex:3] forName:@"type04"];
     XCTAssertTrue([set count]==4);
-    XCTAssertTrue([set containsObject:[anArray objectAtIndex:0] ofName:@"type01"]);
-    XCTAssertTrue([set containsObject:[anArray objectAtIndex:1] ofName:@"type02"]);
-    XCTAssertTrue([set containsObject:[anArray objectAtIndex:2] ofName:@"type03"]);
-    XCTAssertTrue([set containsObject:[anArray objectAtIndex:3] ofName:@"type04"]);
-    XCTAssertFalse([set containsObject:[[PSType alloc] initWithName:@"type04"] ofName:@"type04"]);
-    XCTAssertTrue([set containsObjectOfName:@"type01"]);
-    XCTAssertTrue([set containsObjectOfName:@"type02"]);
-    XCTAssertTrue([set containsObjectOfName:@"type03"]);
-    XCTAssertTrue([set containsObjectOfName:@"type04"]);
-    XCTAssertFalse([set containsObjectOfName:@"type05"]);
-    id o=[set removeObject:[anArray objectAtIndex:1] ofName:@"type02"];
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:0] forName:@"type01"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:1] forName:@"type02"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:2] forName:@"type03"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:3] forName:@"type04"]);
+    XCTAssertFalse([set containsObject:[[PSType alloc] initWithName:@"type04"] forName:@"type04"]);
+    XCTAssertTrue([set containsObjectForName:@"type01"]);
+    XCTAssertTrue([set containsObjectForName:@"type02"]);
+    XCTAssertTrue([set containsObjectForName:@"type03"]);
+    XCTAssertTrue([set containsObjectForName:@"type04"]);
+    XCTAssertFalse([set containsObjectForName:@"type05"]);
+    id o=[set removeObject:[anArray objectAtIndex:1] forName:@"type02"];
     XCTAssertEqualObjects(o,[anArray objectAtIndex:1]);
     XCTAssertTrue(o==[anArray objectAtIndex:1]);
-    XCTAssertFalse([set containsObject:[anArray objectAtIndex:1] ofName:@"type02"]);
-    XCTAssertFalse([set containsObjectOfName:@"type02"]);
-    XCTAssertThrows([set removeObjectOfName:@"type02"], @"object of this name not present in set");
-    XCTAssertThrows([set removeObject:[anArray objectAtIndex:1] ofName:@"type02"],@"object of this name not present in set");
-    o=[set removeObjectOfName:@"type03"];
-    XCTAssertFalse([set containsObject:[anArray objectAtIndex:1] ofName:@"type02"]);
+    XCTAssertFalse([set containsObject:[anArray objectAtIndex:1] forName:@"type02"]);
+    XCTAssertFalse([set containsObjectForName:@"type02"]);
+    XCTAssertThrows([set removeObjectForName:@"type02"], @"object of this name not present in set");
+    XCTAssertThrows([set removeObject:[anArray objectAtIndex:1] forName:@"type02"],@"object of this name not present in set");
+    o=[set removeObjectForName:@"type03"];
+    XCTAssertFalse([set containsObject:[anArray objectAtIndex:1] forName:@"type02"]);
     XCTAssertTrue([set count]==2);
-    o=[set removeObjectOfName:@"type04"];
-    o=[set removeObjectOfName:@"type01"];
+    o=[set removeObjectForName:@"type04"];
+    o=[set removeObjectForName:@"type01"];
     XCTAssertTrue([set count]==0);
 }
 
@@ -253,26 +262,26 @@
                         [[PSType alloc] initWithName:@"type02"],
                         [[PSType alloc] initWithName:@"type03"],
                         [[PSType alloc] initWithName:@"type04"], nil];
-    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] init];
+    PSSetIndexedByName* set = [[PSSetIndexedByName alloc] init];
     XCTAssert(set != nil);
     XCTAssert([set count]==0);
-    [set addObject:[anArray objectAtIndex:0] ofName:@"type01"];
+    [set addObject:[anArray objectAtIndex:0] forName:@"type01"];
     XCTAssert([set count]==1);
-    [set addObject:[anArray objectAtIndex:1] ofName:@"type02"];
+    [set addObject:[anArray objectAtIndex:1] forName:@"type02"];
     XCTAssert([set count]==2);
-    [set addObject:[anArray objectAtIndex:2] ofName:@"type03"];
+    [set addObject:[anArray objectAtIndex:2] forName:@"type03"];
     XCTAssert([set count]==3);
-    [set addObject:[anArray objectAtIndex:3] ofName:@"type04"];
+    [set addObject:[anArray objectAtIndex:3] forName:@"type04"];
     XCTAssertTrue([set count]==4);
     [[anArray objectAtIndex:2] setName:@"new name!"];
-    XCTAssertThrows([set removeObjectOfName:@"type03"], @"object of this name not present in set");
-    XCTAssertFalse([set containsObjectOfName:@"type03"]);
-    XCTAssertTrue([set containsObjectOfName:@"new name!"]);
-    XCTAssertTrue([set containsObject:[anArray objectAtIndex:2] ofName:@"new name!"]);
-    [set removeObjectOfName:@"type01"];
-    [set removeObjectOfName:@"type02"];
-    [set removeObjectOfName:@"new name!"];
-    [set removeObjectOfName:@"type04"];
+    XCTAssertThrows([set removeObjectForName:@"type03"], @"object of this name not present in set");
+    XCTAssertFalse([set containsObjectForName:@"type03"]);
+    XCTAssertTrue([set containsObjectForName:@"new name!"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:2] forName:@"new name!"]);
+    [set removeObjectForName:@"type01"];
+    [set removeObjectForName:@"type02"];
+    [set removeObjectForName:@"new name!"];
+    [set removeObjectForName:@"type04"];
 }
 
 @end
