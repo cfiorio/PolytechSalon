@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "PSLibrary.h"
+#import "PSDataDocuments.h"
 
 @interface PSPoolTableViewController : UITableViewController
 
 @property (nonatomic,strong,readonly) PSLibrary* library;
+@property (nonatomic,strong,readonly) PSDataDocuments* dataDocuments;
 
 @end

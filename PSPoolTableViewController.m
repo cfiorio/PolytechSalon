@@ -49,6 +49,7 @@ static NSArray* areaKeys=nil;
     [super viewDidLoad];
 
     self->_library=[(PSAppDelegate*)[[UIApplication sharedApplication] delegate] library];
+    self->_dataDocuments = [[PSDataDocuments alloc] initWithAreas:[self.library areas]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,31 +69,35 @@ static NSArray* areaKeys=nil;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.library.areas count];
+//    return [self.library.areas count];
+    return [self.dataDocuments numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if (areaKeys==nil) { // get keys of areas and sort them alphabetically
-        areaKeys = [[self.library.areas allNames] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-    }
-    //NSLog(@"section=%d - key=%@",section,[areaKeys objectAtIndex:section]);
-    // count docs of section with name corresponding to section'th keys of areas
-    return [[self getDocsOfAreaName:[areaKeys objectAtIndex:section]] count];
+//    // Return the number of rows in the section.
+//    if (areaKeys==nil) { // get keys of areas and sort them alphabetically
+//        areaKeys = [[self.library.areas allNames] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+//    }
+//    //NSLog(@"section=%d - key=%@",section,[areaKeys objectAtIndex:section]);
+//    // count docs of section with name corresponding to section'th keys of areas
+//    return [[self getDocsOfAreaName:[areaKeys objectAtIndex:section]] count];
+    return [self.dataDocuments numberOfRowsForSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"PSPoolCell";
     PSPoolCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    // Configure the cell...
-    //[NSString stringWithFormat:@"area %d - %d",indexPath.row,indexPath.item];
-    // get set of docs corresponding to area name, then get a sorted array of this set, then get objecct at item index
-    cell.nameLabel.text= [[[self getSortedDocsOfSet:[self getDocsOfAreaName:[areaKeys objectAtIndex:indexPath.section]]]
-                                                    objectAtIndex:indexPath.item] name];
-    // get area with key corresponding to section, then get its name
-    cell.areaLabel.text= [[self.library.areas areaOfName:[areaKeys objectAtIndex:indexPath.section]] name];
+//    // Configure the cell...
+//    //[NSString stringWithFormat:@"area %d - %d",indexPath.row,indexPath.item];
+//    // get set of docs corresponding to area name, then get a sorted array of this set, then get objecct at item index
+//    cell.nameLabel.text= [[[self getSortedDocsOfSet:[self getDocsOfAreaName:[areaKeys objectAtIndex:indexPath.section]]]
+//                                                    objectAtIndex:indexPath.item] name];
+//    // get area with key corresponding to section, then get its name
+//    cell.areaLabel.text= [[self.library.areas areaOfName:[areaKeys objectAtIndex:indexPath.section]] name];
+    cell.nameLabel.text = [self.dataDocuments getDocumentNameForSection:indexPath.section andForRow:indexPath.row];
+    cell.areaLabel.text = [self.dataDocuments getAreaNameForSection:indexPath.section];
     return cell;
 }
 

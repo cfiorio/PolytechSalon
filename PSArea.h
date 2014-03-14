@@ -32,4 +32,6 @@
 // get a sorted by document name of all documents of this area
 - (NSArray*) allDocumentsSortedByName;
 
+-(NSInteger) numberOfDocuments;
+
 @end

@@ -43,6 +43,8 @@
 		0760E27B18D0B9A0006133F3 /* PSSetIndexedByName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */; };
 		0760E27E18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
 		0760E27F18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
+		07B5554818D369D900EBA151 /* PSDataDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5554718D369D900EBA151 /* PSDataDocuments.m */; };
+		07B5554918D369D900EBA151 /* PSDataDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5554718D369D900EBA151 /* PSDataDocuments.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		0760E27C18D1EF42006133F3 /* NSMutableSet+PSSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+PSSet.h"; sourceTree = "<group>"; };
 		0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+PSSet.m"; sourceTree = "<group>"; };
 		07B5554518D2FE0900EBA151 /* PSObjectWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSObjectWithName.h; sourceTree = "<group>"; };
+		07B5554618D369D800EBA151 /* PSDataDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDataDocuments.h; sourceTree = "<group>"; };
+		07B5554718D369D900EBA151 /* PSDataDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDataDocuments.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +241,8 @@
 		0760E25B18D03A07006133F3 /* Model classes */ = {
 			isa = PBXGroup;
 			children = (
+				07B5554618D369D800EBA151 /* PSDataDocuments.h */,
+				07B5554718D369D900EBA151 /* PSDataDocuments.m */,
 			);
 			name = "Model classes";
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				0760E1E418CDF1A4006133F3 /* PSPoolCell.m in Sources */,
 				0760E27618D04A1B006133F3 /* PSSetOfAreas.m in Sources */,
 				0731D46918CD032A00373AE1 /* PSLibrary.m in Sources */,
+				07B5554818D369D900EBA151 /* PSDataDocuments.m in Sources */,
 				0760E27218D04144006133F3 /* PSSetOfTypes.m in Sources */,
 				0760E27E18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */,
 				0731D46118CCFCEF00373AE1 /* PSArea.m in Sources */,
@@ -387,6 +394,7 @@
 				0760E27318D04144006133F3 /* PSSetOfTypes.m in Sources */,
 				0731D46A18CD032A00373AE1 /* PSLibrary.m in Sources */,
 				0731D46218CCFCEF00373AE1 /* PSArea.m in Sources */,
+				07B5554918D369D900EBA151 /* PSDataDocuments.m in Sources */,
 				0760E27718D04A1B006133F3 /* PSSetOfAreas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

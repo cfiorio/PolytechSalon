@@ -76,4 +76,9 @@
     return [self.docsList sortedArrayByPropertyName:@"name"];
 }
 
+-(NSInteger) numberOfDocuments{
+    return [self.docsList count];
+}
+
+
 @end
