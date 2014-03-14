@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Fiorio Christophe. All rights reserved.
 //
 
-#import "PSDocType.h"
+#import "PSType.h"
 
-@implementation PSDocType
+@implementation PSType
 
 @synthesize name=_name;
 

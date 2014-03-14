@@ -8,11 +8,12 @@
 
 #import <XCTest/XCTest.h>
 #import <XCTest/XCTestAssertions.h>
-#import "PSDocType.h"
+#import "PSType.h"
 #import "PSArea.h"
 #import "PSDocument.h"
 #import "PSPool.h"
 #import "PSLibrary.h"
+#import "PSSetOfObjectsWithName.h"
 
 @interface Polytech_SalonTests : XCTestCase
 
@@ -34,7 +35,7 @@
 
 - (void)testPSDocTypeCreation
 {
-    PSDocType* docType = [[PSDocType alloc] initWithName:@"URL type"];
+    PSType* docType = [[PSType alloc] initWithName:@"URL type"];
     XCTAssertEqualObjects(docType.name, @"URL type");
 }
 
@@ -53,7 +54,7 @@
 - (void)testPSDocumentCreation
 {
     // initialization test
-    PSDocType* type = [[PSDocType alloc] initWithName:@"URL"];
+    PSType* type = [[PSType alloc] initWithName:@"URL"];
     PSDocument* doc1 = [[PSDocument alloc] initWithName:@"IG" andType:type];
     XCTAssertEqualObjects(doc1.name, @"IG");
     XCTAssertEqualObjects(doc1.type, type);
@@ -75,7 +76,7 @@
 - (void)testPSPoolAddDelDoc
 {
     // initialization test
-    PSDocType* type = [[PSDocType alloc] initWithName:@"URL"];
+    PSType* type = [[PSType alloc] initWithName:@"URL"];
     PSDocument* doc1 = [[PSDocument alloc] initWithName:@"IG1" andType:type];
     PSDocument* doc2 = [[PSDocument alloc] initWithName:@"IG2" andType:type];
     PSDocument* doc3 = [[PSDocument alloc] initWithName:@"IG3" andType:type];
@@ -94,16 +95,16 @@
 {
     // initialization test
     PSLibrary* lib = [[PSLibrary alloc] init];
-    XCTAssertEqualObjects([[lib.types objectForKey:@"URL"] name],@"URL");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"IG"] name],@"IG");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"ERII"] name],@"ERII");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"Mat"] name],@"Mat");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"M&I"] name],@"M&I");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"STE"] name],@"STE");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"STIA"] name],@"STIA");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"MSI"] name],@"MSI");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"EGC"] name],@"EGC");
-    XCTAssertEqualObjects([[lib.areas objectForKey:@"SE"] name],@"SE");
+    XCTAssertEqualObjects([[lib.types typeOfName:@"URL"] name],@"URL");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"IG"] name],@"IG");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"ERII"] name],@"ERII");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"Mat"] name],@"Mat");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"M&I"] name],@"M&I");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"STE"] name],@"STE");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"STIA"] name],@"STIA");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"MSI"] name],@"MSI");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"EGC"] name],@"EGC");
+    XCTAssertEqualObjects([[lib.areas areaOfName:@"SE"] name],@"SE");
     XCTAssert([lib.docs count]==6); // check if there is 6 members
     // IG docs
     NSSet* docs = [lib.docs objectsPassingTest:^(id obj, BOOL *stop){
@@ -141,6 +142,137 @@
     for (PSDocument* doc in docs){ // check Mat doc name
         XCTAssert([[doc name] isEqualToString:@"Syllabus M&I"]);
     }
+}
+
+- (void)testPSSetOfObjectsWithNameInit
+{
+    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] init];
+    XCTAssert(set != nil);
+    XCTAssert([set count]==0);
+}
+
+- (void)testPSSetOfObjectsWithNameInitWithArray
+{
+    NSArray* anArray = [NSArray arrayWithObjects:
+                        [[PSType alloc] initWithName:@"type01"],
+                        [[PSType alloc] initWithName:@"type02"],
+                        [[PSType alloc] initWithName:@"type03"],
+                        [[PSType alloc] initWithName:@"type04"], nil];
+    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] initWithArray:anArray];
+    XCTAssert(set != nil);
+    XCTAssert([set count]==4);
+    NSArray* names = [set allNames];
+    for (id str in names){
+        NSLog(@"name=%@",str);
+    }
+    NSArray* objects = [set allObjects];
+    XCTAssert([anArray containsObject:[objects objectAtIndex:0]]);
+    XCTAssert([anArray containsObject:[objects objectAtIndex:1]]);
+    XCTAssert([anArray containsObject:[objects objectAtIndex:2]]);
+    XCTAssert([anArray containsObject:[objects objectAtIndex:3]]);
+    id obj = [set objectOfName:@"type03"];
+    XCTAssert(obj==[anArray objectAtIndex:2]);
+    XCTAssertEqualObjects(obj,[anArray objectAtIndex:2]);
+    NSArray* sortedObjects = [set sortedArrayByName];
+    for (id o in sortedObjects){
+        XCTAssertTrue([o isKindOfClass:[PSType class]]);
+    }
+    for (id o in sortedObjects){
+        NSLog(@"name = %@",[o name]);
+    }
+}
+
+- (void)testPSSetOfObjectsWithNameInitWithSet
+{
+    NSSet* aSet = [NSSet setWithObjects:
+                   [[PSType alloc] initWithName:@"type01"],
+                   [[PSType alloc] initWithName:@"type02"],
+                   [[PSType alloc] initWithName:@"type03"],
+                   [[PSType alloc] initWithName:@"type04"], nil];
+    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] initWithSet:aSet];
+    XCTAssert(set != nil);
+    XCTAssert([set count]==4);
+    NSArray* names = [set allNames];
+    for (id str in names){
+        NSLog(@"name=%@",str);
+    }
+    NSArray* objects = [set allObjects];
+    XCTAssert([aSet containsObject:[objects objectAtIndex:0]]);
+    XCTAssert([aSet containsObject:[objects objectAtIndex:1]]);
+    XCTAssert([aSet containsObject:[objects objectAtIndex:2]]);
+    XCTAssert([aSet containsObject:[objects objectAtIndex:3]]);
+}
+
+- (void)testPSSetOfObjectsWithName
+{
+    NSArray* anArray = [NSArray arrayWithObjects:
+                        [[PSType alloc] initWithName:@"type01"],
+                        [[PSType alloc] initWithName:@"type02"],
+                        [[PSType alloc] initWithName:@"type03"],
+                        [[PSType alloc] initWithName:@"type04"], nil];
+    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] init];
+    XCTAssert(set != nil);
+    XCTAssert([set count]==0);
+    [set addObject:[anArray objectAtIndex:0] ofName:@"type01"];
+    XCTAssert([set count]==1);
+    [set addObject:[anArray objectAtIndex:1] ofName:@"type02"];
+    XCTAssert([set count]==2);
+    [set addObject:[anArray objectAtIndex:2] ofName:@"type03"];
+    XCTAssert([set count]==3);
+    [set addObject:[anArray objectAtIndex:3] ofName:@"type04"];
+    XCTAssertTrue([set count]==4);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:0] ofName:@"type01"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:1] ofName:@"type02"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:2] ofName:@"type03"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:3] ofName:@"type04"]);
+    XCTAssertFalse([set containsObject:[[PSType alloc] initWithName:@"type04"] ofName:@"type04"]);
+    XCTAssertTrue([set containsObjectOfName:@"type01"]);
+    XCTAssertTrue([set containsObjectOfName:@"type02"]);
+    XCTAssertTrue([set containsObjectOfName:@"type03"]);
+    XCTAssertTrue([set containsObjectOfName:@"type04"]);
+    XCTAssertFalse([set containsObjectOfName:@"type05"]);
+    id o=[set removeObject:[anArray objectAtIndex:1] ofName:@"type02"];
+    XCTAssertEqualObjects(o,[anArray objectAtIndex:1]);
+    XCTAssertTrue(o==[anArray objectAtIndex:1]);
+    XCTAssertFalse([set containsObject:[anArray objectAtIndex:1] ofName:@"type02"]);
+    XCTAssertFalse([set containsObjectOfName:@"type02"]);
+    XCTAssertThrows([set removeObjectOfName:@"type02"], @"object of this name not present in set");
+    XCTAssertThrows([set removeObject:[anArray objectAtIndex:1] ofName:@"type02"],@"object of this name not present in set");
+    o=[set removeObjectOfName:@"type03"];
+    XCTAssertFalse([set containsObject:[anArray objectAtIndex:1] ofName:@"type02"]);
+    XCTAssertTrue([set count]==2);
+    o=[set removeObjectOfName:@"type04"];
+    o=[set removeObjectOfName:@"type01"];
+    XCTAssertTrue([set count]==0);
+}
+
+- (void)testPSSetOfObjectsWithNameKVO
+{
+    NSArray* anArray = [NSArray arrayWithObjects:
+                        [[PSType alloc] initWithName:@"type01"],
+                        [[PSType alloc] initWithName:@"type02"],
+                        [[PSType alloc] initWithName:@"type03"],
+                        [[PSType alloc] initWithName:@"type04"], nil];
+    PSSetOfObjectsWithName* set = [[PSSetOfObjectsWithName alloc] init];
+    XCTAssert(set != nil);
+    XCTAssert([set count]==0);
+    [set addObject:[anArray objectAtIndex:0] ofName:@"type01"];
+    XCTAssert([set count]==1);
+    [set addObject:[anArray objectAtIndex:1] ofName:@"type02"];
+    XCTAssert([set count]==2);
+    [set addObject:[anArray objectAtIndex:2] ofName:@"type03"];
+    XCTAssert([set count]==3);
+    [set addObject:[anArray objectAtIndex:3] ofName:@"type04"];
+    XCTAssertTrue([set count]==4);
+    [[anArray objectAtIndex:2] setName:@"new name!"];
+    XCTAssertThrows([set removeObjectOfName:@"type03"], @"object of this name not present in set");
+    XCTAssertFalse([set containsObjectOfName:@"type03"]);
+    XCTAssertTrue([set containsObjectOfName:@"new name!"]);
+    XCTAssertTrue([set containsObject:[anArray objectAtIndex:2] ofName:@"new name!"]);
+    [set removeObjectOfName:@"type01"];
+    [set removeObjectOfName:@"type02"];
+    [set removeObjectOfName:@"new name!"];
+    [set removeObjectOfName:@"type04"];
 }
 
 @end

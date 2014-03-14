@@ -14,7 +14,7 @@
 @synthesize type=_type;
 @synthesize area=_area;
 
-- (id)initWithName:(NSString *)name type:(PSDocType*) type andArea:(PSArea*) area
+- (id)initWithName:(NSString *)name type:(PSType*) type andArea:(PSArea*) area
 {
     self = [super init];
     if (self) {
@@ -25,7 +25,7 @@
     return self;
 }
 
-- (id)initWithName:(NSString *)name andType:(PSDocType*) type
+- (id)initWithName:(NSString *)name andType:(PSType*) type
 {
     return [self initWithName:name type:type andArea:nil];
 }

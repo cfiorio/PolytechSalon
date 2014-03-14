@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PSDocType : NSObject
+@interface PSType : NSObject
 
 @property (nonatomic,copy) NSString* name;
 

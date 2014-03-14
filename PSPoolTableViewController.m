@@ -75,7 +75,7 @@ static NSArray* areaKeys=nil;
 {
     // Return the number of rows in the section.
     if (areaKeys==nil) { // get keys of areas and sort them alphabetically
-        areaKeys = [[self.library.areas allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+        areaKeys = [[self.library.areas allNames] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     }
     //NSLog(@"section=%d - key=%@",section,[areaKeys objectAtIndex:section]);
     // count docs of section with name corresponding to section'th keys of areas
@@ -92,7 +92,7 @@ static NSArray* areaKeys=nil;
     cell.nameLabel.text= [[[self getSortedDocsOfSet:[self getDocsOfAreaName:[areaKeys objectAtIndex:indexPath.section]]]
                                                     objectAtIndex:indexPath.item] name];
     // get area with key corresponding to section, then get its name
-    cell.areaLabel.text= [[self.library.areas objectForKey:[areaKeys objectAtIndex:indexPath.section]] name];
+    cell.areaLabel.text= [[self.library.areas areaOfName:[areaKeys objectAtIndex:indexPath.section]] name];
     return cell;
 }
 

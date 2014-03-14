@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "PSDocument.h"
 #import "PSArea.h"
-#import "PSDocType.h"
+#import "PSType.h"
 #import "PSPool.h"
+#import "PSSetOfAreas.h"
+#import "PSSetOfTypes.h"
+#import "NSMutableSet+PSSet.h"
 
 @interface PSLibrary : NSObject
 
-@property (nonatomic,readonly,strong) NSDictionary* types;
-@property (nonatomic,readonly,strong) NSDictionary* areas;
-@property (nonatomic,readonly,strong) NSSet* docs;
+@property (nonatomic,readonly,strong) PSSetOfTypes* types;
+@property (nonatomic,readonly,strong) PSSetOfAreas* areas;
+@property (nonatomic,readonly,strong) NSMutableSet* docs;
 @property (nonatomic,readonly,strong) NSMutableSet* pools;
 
 - (id) init;

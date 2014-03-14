@@ -20,8 +20,8 @@
 		0731D44718CCA32300373AE1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0731D44518CCA32300373AE1 /* InfoPlist.strings */; };
 		0731D45518CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */; };
 		0731D45618CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */; };
-		0731D45918CCA7B900373AE1 /* PSDocType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45818CCA7B900373AE1 /* PSDocType.m */; };
-		0731D45A18CCA7B900373AE1 /* PSDocType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45818CCA7B900373AE1 /* PSDocType.m */; };
+		0731D45918CCA7B900373AE1 /* PSType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45818CCA7B900373AE1 /* PSType.m */; };
+		0731D45A18CCA7B900373AE1 /* PSType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45818CCA7B900373AE1 /* PSType.m */; };
 		0731D45D18CCBB4200373AE1 /* PSDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45C18CCBB4200373AE1 /* PSDocument.m */; };
 		0731D45E18CCBB4200373AE1 /* PSDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D45C18CCBB4200373AE1 /* PSDocument.m */; };
 		0731D46118CCFCEF00373AE1 /* PSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D46018CCFCEF00373AE1 /* PSArea.m */; };
@@ -33,6 +33,16 @@
 		0731D47218CDAD2E00373AE1 /* Polytech_SalonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0731D47018CDAD2E00373AE1 /* Polytech_SalonTests.m */; };
 		0760E1E118CDF0E5006133F3 /* PSPoolTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E1E018CDF0E5006133F3 /* PSPoolTableViewController.m */; };
 		0760E1E418CDF1A4006133F3 /* PSPoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E1E318CDF1A4006133F3 /* PSPoolCell.m */; };
+		0760E26318D03A95006133F3 /* CFDefaultModelDelegateObserved.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E25E18D03A95006133F3 /* CFDefaultModelDelegateObserved.m */; };
+		0760E26418D03A95006133F3 /* CFDefaultModelObserved.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E26018D03A95006133F3 /* CFDefaultModelObserved.m */; };
+		0760E27218D04144006133F3 /* PSSetOfTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27118D04144006133F3 /* PSSetOfTypes.m */; };
+		0760E27318D04144006133F3 /* PSSetOfTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27118D04144006133F3 /* PSSetOfTypes.m */; };
+		0760E27618D04A1B006133F3 /* PSSetOfAreas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27518D04A1B006133F3 /* PSSetOfAreas.m */; };
+		0760E27718D04A1B006133F3 /* PSSetOfAreas.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27518D04A1B006133F3 /* PSSetOfAreas.m */; };
+		0760E27A18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */; };
+		0760E27B18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */; };
+		0760E27E18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
+		0760E27F18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +74,8 @@
 		0731D45218CCA68F00373AE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0731D45318CCA68F00373AE1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Polytech_Salon.storyboard; sourceTree = "<group>"; };
-		0731D45718CCA7B900373AE1 /* PSDocType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDocType.h; sourceTree = "<group>"; usesTabs = 0; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		0731D45818CCA7B900373AE1 /* PSDocType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDocType.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		0731D45718CCA7B900373AE1 /* PSType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSType.h; sourceTree = "<group>"; usesTabs = 0; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0731D45818CCA7B900373AE1 /* PSType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSType.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		0731D45B18CCBB4200373AE1 /* PSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDocument.h; sourceTree = "<group>"; };
 		0731D45C18CCBB4200373AE1 /* PSDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDocument.m; sourceTree = "<group>"; };
 		0731D45F18CCFCEF00373AE1 /* PSArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSArea.h; sourceTree = "<group>"; };
@@ -79,6 +89,20 @@
 		0760E1E018CDF0E5006133F3 /* PSPoolTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoolTableViewController.m; sourceTree = "<group>"; };
 		0760E1E218CDF1A4006133F3 /* PSPoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoolCell.h; sourceTree = "<group>"; };
 		0760E1E318CDF1A4006133F3 /* PSPoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoolCell.m; sourceTree = "<group>"; };
+		0760E25D18D03A95006133F3 /* CFDefaultModelDelegateObserved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDefaultModelDelegateObserved.h; sourceTree = "<group>"; };
+		0760E25E18D03A95006133F3 /* CFDefaultModelDelegateObserved.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDefaultModelDelegateObserved.m; sourceTree = "<group>"; };
+		0760E25F18D03A95006133F3 /* CFDefaultModelObserved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFDefaultModelObserved.h; sourceTree = "<group>"; };
+		0760E26018D03A95006133F3 /* CFDefaultModelObserved.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFDefaultModelObserved.m; sourceTree = "<group>"; };
+		0760E26118D03A95006133F3 /* CFModelObserved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFModelObserved.h; sourceTree = "<group>"; };
+		0760E26218D03A95006133F3 /* CFObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFObserver.h; sourceTree = "<group>"; };
+		0760E27018D04143006133F3 /* PSSetOfTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSetOfTypes.h; sourceTree = "<group>"; };
+		0760E27118D04144006133F3 /* PSSetOfTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetOfTypes.m; sourceTree = "<group>"; };
+		0760E27418D04A1B006133F3 /* PSSetOfAreas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSetOfAreas.h; sourceTree = "<group>"; };
+		0760E27518D04A1B006133F3 /* PSSetOfAreas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetOfAreas.m; sourceTree = "<group>"; };
+		0760E27818D0B9A0006133F3 /* PSSetOfObjectsWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSetOfObjectsWithName.h; sourceTree = "<group>"; };
+		0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetOfObjectsWithName.m; sourceTree = "<group>"; };
+		0760E27C18D1EF42006133F3 /* NSMutableSet+PSSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+PSSet.h"; sourceTree = "<group>"; };
+		0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+PSSet.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,21 +132,14 @@
 		0731D41718CCA32300373AE1 = {
 			isa = PBXGroup;
 			children = (
-				0760E1E218CDF1A4006133F3 /* PSPoolCell.h */,
-				0760E1E318CDF1A4006133F3 /* PSPoolCell.m */,
-				0731D46718CD032A00373AE1 /* PSLibrary.h */,
-				0731D46818CD032A00373AE1 /* PSLibrary.m */,
+				0760E25C18D03A63006133F3 /* Observer design pattern */,
+				0760E25A18D039B5006133F3 /* Business classes */,
+				0760E25B18D03A07006133F3 /* Model classes */,
 				0731D45418CCA72700373AE1 /* Polytech_Salon.storyboard */,
 				0760E1DF18CDF0E5006133F3 /* PSPoolTableViewController.h */,
 				0760E1E018CDF0E5006133F3 /* PSPoolTableViewController.m */,
-				0731D45718CCA7B900373AE1 /* PSDocType.h */,
-				0731D45818CCA7B900373AE1 /* PSDocType.m */,
-				0731D45B18CCBB4200373AE1 /* PSDocument.h */,
-				0731D45C18CCBB4200373AE1 /* PSDocument.m */,
-				0731D45F18CCFCEF00373AE1 /* PSArea.h */,
-				0731D46018CCFCEF00373AE1 /* PSArea.m */,
-				0731D46318CCFF0E00373AE1 /* PSPool.h */,
-				0731D46418CCFF0E00373AE1 /* PSPool.m */,
+				0760E1E218CDF1A4006133F3 /* PSPoolCell.h */,
+				0760E1E318CDF1A4006133F3 /* PSPoolCell.m */,
 				0731D42918CCA32300373AE1 /* Polytech Salon */,
 				0731D44218CCA32300373AE1 /* Polytech SalonTests */,
 				0731D42218CCA32300373AE1 /* Frameworks */,
@@ -188,6 +205,51 @@
 				0731D44518CCA32300373AE1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0760E25A18D039B5006133F3 /* Business classes */ = {
+			isa = PBXGroup;
+			children = (
+				0731D46718CD032A00373AE1 /* PSLibrary.h */,
+				0731D46818CD032A00373AE1 /* PSLibrary.m */,
+				0731D45718CCA7B900373AE1 /* PSType.h */,
+				0731D45818CCA7B900373AE1 /* PSType.m */,
+				0731D45B18CCBB4200373AE1 /* PSDocument.h */,
+				0731D45C18CCBB4200373AE1 /* PSDocument.m */,
+				0731D45F18CCFCEF00373AE1 /* PSArea.h */,
+				0731D46018CCFCEF00373AE1 /* PSArea.m */,
+				0731D46318CCFF0E00373AE1 /* PSPool.h */,
+				0731D46418CCFF0E00373AE1 /* PSPool.m */,
+				0760E27418D04A1B006133F3 /* PSSetOfAreas.h */,
+				0760E27518D04A1B006133F3 /* PSSetOfAreas.m */,
+				0760E27C18D1EF42006133F3 /* NSMutableSet+PSSet.h */,
+				0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */,
+				0760E27018D04143006133F3 /* PSSetOfTypes.h */,
+				0760E27118D04144006133F3 /* PSSetOfTypes.m */,
+				0760E27818D0B9A0006133F3 /* PSSetOfObjectsWithName.h */,
+				0760E27918D0B9A0006133F3 /* PSSetOfObjectsWithName.m */,
+			);
+			name = "Business classes";
+			sourceTree = "<group>";
+		};
+		0760E25B18D03A07006133F3 /* Model classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Model classes";
+			sourceTree = "<group>";
+		};
+		0760E25C18D03A63006133F3 /* Observer design pattern */ = {
+			isa = PBXGroup;
+			children = (
+				0760E25D18D03A95006133F3 /* CFDefaultModelDelegateObserved.h */,
+				0760E25E18D03A95006133F3 /* CFDefaultModelDelegateObserved.m */,
+				0760E25F18D03A95006133F3 /* CFDefaultModelObserved.h */,
+				0760E26018D03A95006133F3 /* CFDefaultModelObserved.m */,
+				0760E26118D03A95006133F3 /* CFModelObserved.h */,
+				0760E26218D03A95006133F3 /* CFObserver.h */,
+			);
+			name = "Observer design pattern";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,11 +356,17 @@
 			files = (
 				0731D43018CCA32300373AE1 /* main.m in Sources */,
 				0731D45D18CCBB4200373AE1 /* PSDocument.m in Sources */,
+				0760E26318D03A95006133F3 /* CFDefaultModelDelegateObserved.m in Sources */,
 				0731D46518CCFF0E00373AE1 /* PSPool.m in Sources */,
-				0731D45918CCA7B900373AE1 /* PSDocType.m in Sources */,
+				0760E27A18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */,
+				0760E26418D03A95006133F3 /* CFDefaultModelObserved.m in Sources */,
+				0731D45918CCA7B900373AE1 /* PSType.m in Sources */,
 				0760E1E118CDF0E5006133F3 /* PSPoolTableViewController.m in Sources */,
 				0760E1E418CDF1A4006133F3 /* PSPoolCell.m in Sources */,
+				0760E27618D04A1B006133F3 /* PSSetOfAreas.m in Sources */,
 				0731D46918CD032A00373AE1 /* PSLibrary.m in Sources */,
+				0760E27218D04144006133F3 /* PSSetOfTypes.m in Sources */,
+				0760E27E18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */,
 				0731D46118CCFCEF00373AE1 /* PSArea.m in Sources */,
 				0731D43418CCA32300373AE1 /* PSAppDelegate.m in Sources */,
 			);
@@ -308,12 +376,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0760E27F18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */,
 				0731D46618CCFF0E00373AE1 /* PSPool.m in Sources */,
+				0760E27B18D0B9A0006133F3 /* PSSetOfObjectsWithName.m in Sources */,
 				0731D45E18CCBB4200373AE1 /* PSDocument.m in Sources */,
 				0731D47218CDAD2E00373AE1 /* Polytech_SalonTests.m in Sources */,
-				0731D45A18CCA7B900373AE1 /* PSDocType.m in Sources */,
+				0731D45A18CCA7B900373AE1 /* PSType.m in Sources */,
+				0760E27318D04144006133F3 /* PSSetOfTypes.m in Sources */,
 				0731D46A18CD032A00373AE1 /* PSLibrary.m in Sources */,
 				0731D46218CCFCEF00373AE1 /* PSArea.m in Sources */,
+				0760E27718D04A1B006133F3 /* PSSetOfAreas.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
