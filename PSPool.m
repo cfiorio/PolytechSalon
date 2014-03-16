@@ -10,9 +10,6 @@
 
 @implementation PSPool
 
-@synthesize name=_name;
-@synthesize docsList=_docsList;
-
 - (id)initWithName:(NSString *)name
 {
     self = [super init];

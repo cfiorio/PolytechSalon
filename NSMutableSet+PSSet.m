@@ -13,7 +13,7 @@
 - (NSArray*) sortedArrayByPropertyName:(NSString*)propertyName{
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:propertyName ascending:YES
                                                                 selector:@selector(caseInsensitiveCompare:)];
-    NSArray* anArray = [self sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
+    NSArray* anArray = [self sortedArrayUsingDescriptors:@[sortDesc]];
     return anArray;
 }
 

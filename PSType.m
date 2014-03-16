@@ -10,8 +10,6 @@
 
 @implementation PSType
 
-@synthesize name=_name;
-
 - (id)initWithName:(NSString*)aName{
     self = [super init];
     if (self) {

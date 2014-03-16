@@ -17,30 +17,37 @@
         self->_areas = [aSetOfAreas sortedArrayByName];
         self->_docsByAreas = [NSMutableArray arrayWithCapacity:[self.areas count]];
         for (int i=0; i<[self.areas count]; i++) {
-            [self.docsByAreas insertObject:[NSArray arrayWithArray:[[self.areas objectAtIndex:i] allDocumentsSortedByName]] atIndex:i];
+            [self.docsByAreas insertObject:[NSArray arrayWithArray:[(self.areas)[i] allDocumentsSortedByName]] atIndex:i];
         }
     }
     return self;
 }
 
 -(PSArea*) getAreaForSection:(NSInteger)aSection{
-    return [self.areas objectAtIndex:aSection];
+    return (self.areas)[aSection];
 }
 -(PSDocument*) getDocumentForSection:(NSInteger) aSection andForRow:(NSInteger)aRow{
-    return [[self.docsByAreas objectAtIndex:aSection] objectAtIndex:aRow];
+    return (self.docsByAreas)[aSection][aRow];
 }
+-(PSType*) getTypeForSection:(NSInteger)aSection andForRow:(NSInteger)aRow{
+    return [[self getDocumentForSection:aSection andForRow:aRow] type];
+}
+
 -(NSString*) getAreaNameForSection:(NSInteger)aSection{
     return [(PSArea*)[self getAreaForSection:aSection] name];
 }
 -(NSString*) getDocumentNameForSection:(NSInteger) aSection andForRow:(NSInteger)aRow{
     return [[self getDocumentForSection:aSection andForRow:aRow] name];
 }
+-(NSString*) getTypeNameForSection:(NSInteger)aSection andForRow:(NSInteger)aRow{
+    return [[self getTypeForSection:aSection andForRow:aRow] name];
+}
 
 -(NSInteger) numberOfSections{
     return [self.areas count];
 }
 -(NSInteger) numberOfRowsForSection:(NSInteger)aSection{
-    return [[self.areas objectAtIndex:aSection] numberOfDocuments];
+    return [(self.areas)[aSection] numberOfDocuments];
 }
 
 

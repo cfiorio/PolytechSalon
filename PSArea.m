@@ -11,9 +11,6 @@
 
 @implementation PSArea
 
-@synthesize name=_name;
-@synthesize docsList=_docsList;
-
 - (id)initWithName:(NSString *)aName
 {
     self = [super init];

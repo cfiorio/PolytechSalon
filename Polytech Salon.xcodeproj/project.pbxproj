@@ -43,8 +43,11 @@
 		0760E27B18D0B9A0006133F3 /* PSSetIndexedByName.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */; };
 		0760E27E18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
 		0760E27F18D1EF42006133F3 /* NSMutableSet+PSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */; };
+		079F6B1C18D59B0700943066 /* Library property backup in Resources */ = {isa = PBXBuildFile; fileRef = 079F6B1B18D59B0700943066 /* Library property backup */; };
 		07B5554818D369D900EBA151 /* PSDataDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5554718D369D900EBA151 /* PSDataDocuments.m */; };
 		07B5554918D369D900EBA151 /* PSDataDocuments.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B5554718D369D900EBA151 /* PSDataDocuments.m */; };
+		07B5554B18D46C3600EBA151 /* Library property.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07B5554A18D46C3600EBA151 /* Library property.plist */; };
+		07B5554C18D46C3600EBA151 /* Library property.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07B5554A18D46C3600EBA151 /* Library property.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,9 +108,11 @@
 		0760E27918D0B9A0006133F3 /* PSSetIndexedByName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSetIndexedByName.m; sourceTree = "<group>"; };
 		0760E27C18D1EF42006133F3 /* NSMutableSet+PSSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+PSSet.h"; sourceTree = "<group>"; };
 		0760E27D18D1EF42006133F3 /* NSMutableSet+PSSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+PSSet.m"; sourceTree = "<group>"; };
+		079F6B1B18D59B0700943066 /* Library property backup */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Library property backup"; sourceTree = SOURCE_ROOT; };
 		07B5554518D2FE0900EBA151 /* PSObjectWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSObjectWithName.h; sourceTree = "<group>"; };
 		07B5554618D369D800EBA151 /* PSDataDocuments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDataDocuments.h; sourceTree = "<group>"; };
 		07B5554718D369D900EBA151 /* PSDataDocuments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDataDocuments.m; sourceTree = "<group>"; };
+		07B5554A18D46C3600EBA151 /* Library property.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Library property.plist"; path = "../Library property.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +191,8 @@
 		0731D42A18CCA32300373AE1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07B5554A18D46C3600EBA151 /* Library property.plist */,
+				079F6B1B18D59B0700943066 /* Library property backup */,
 				0731D42B18CCA32300373AE1 /* Polytech Salon-Info.plist */,
 				0731D42C18CCA32300373AE1 /* InfoPlist.strings */,
 				0731D42F18CCA32300373AE1 /* main.m */,
@@ -341,7 +348,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0731D42E18CCA32300373AE1 /* InfoPlist.strings in Resources */,
+				079F6B1C18D59B0700943066 /* Library property backup in Resources */,
 				0731D45518CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */,
+				07B5554B18D46C3600EBA151 /* Library property.plist in Resources */,
 				0731D43618CCA32300373AE1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B5554C18D46C3600EBA151 /* Library property.plist in Resources */,
 				0731D45618CCA72700373AE1 /* Polytech_Salon.storyboard in Resources */,
 				0731D44718CCA32300373AE1 /* InfoPlist.strings in Resources */,
 			);
@@ -510,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polytech Salon/Polytech Salon-Prefix.pch";
@@ -524,6 +535,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Polytech Salon/Polytech Salon-Prefix.pch";
@@ -538,6 +550,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Polytech Salon.app/Polytech Salon";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -561,6 +574,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Polytech Salon.app/Polytech Salon";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

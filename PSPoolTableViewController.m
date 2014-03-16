@@ -20,21 +20,6 @@
 
 static NSArray* areaKeys=nil;
 
-- (NSSet*) getDocsOfAreaName:(NSString*) areaName{
-    NSSet* docs = [self.library.docs objectsPassingTest:^(id obj, BOOL *stop){
-        BOOL r = [[[(PSDocument*)obj area] name] isEqual:areaName];
-        return r;
-    }]; // create a set of only docs of current section keys
-    return docs;
-}
-
-- (NSArray*) getSortedDocsOfSet:(NSSet*) docsSet{
-    NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES
-                                                   selector:@selector(caseInsensitiveCompare:)];
-    NSArray* docsTab = [docsSet sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesc]];
-    return docsTab;
-}
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -97,6 +82,7 @@ static NSArray* areaKeys=nil;
 //    // get area with key corresponding to section, then get its name
 //    cell.areaLabel.text= [[self.library.areas areaOfName:[areaKeys objectAtIndex:indexPath.section]] name];
     cell.nameLabel.text = [self.dataDocuments getDocumentNameForSection:indexPath.section andForRow:indexPath.row];
+    cell.typeLabel.text = [self.dataDocuments getTypeNameForSection:indexPath.section andForRow:indexPath.row];
     cell.areaLabel.text = [self.dataDocuments getAreaNameForSection:indexPath.section];
     return cell;
 }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PSArea.h"
 #import "PSDocument.h"
+#import "PSType.h"
 #import "PSSetOfAreas.h"
 
 @interface PSDataDocuments : NSObject
@@ -22,9 +23,11 @@
 
 -(PSArea*) getAreaForSection:(NSInteger)aSection;
 -(PSDocument*) getDocumentForSection:(NSInteger) aSection andForRow:(NSInteger)aRow;
+-(PSType*) getTypeForSection:(NSInteger)aSection andForRow:(NSInteger)aRow;
 
 -(NSString*) getAreaNameForSection:(NSInteger)aSection;
 -(NSString*) getDocumentNameForSection:(NSInteger) aSection andForRow:(NSInteger)aRow;
+-(NSString*) getTypeNameForSection:(NSInteger)aSection andForRow:(NSInteger)aRow;
 
 -(NSInteger) numberOfSections;
 -(NSInteger) numberOfRowsForSection:(NSInteger)aSection;

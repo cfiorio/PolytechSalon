@@ -10,9 +10,9 @@
 
 @implementation PSDocument
 
-@synthesize name=_name;
-@synthesize type=_type;
-@synthesize area=_area;
+- (NSString *)description {
+    return [NSString stringWithFormat: @"PSDocument: Name=%@ - Type=%@ - Area=%@", self.name, [self.type name], [self.area name]];
+}
 
 - (id)initWithName:(NSString *)aName type:(PSType*)aType andArea:(PSArea*)anArea
 {

@@ -14,7 +14,7 @@
 
 - (BOOL) application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _library = [[PSLibrary alloc] init];
+    _library = [[PSLibrary alloc] initWithPropertyList];
     return self.library!=nil;
 }
 

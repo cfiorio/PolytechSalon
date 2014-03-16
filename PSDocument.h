@@ -19,5 +19,4 @@
 - (id) initWithName:(NSString*)name andType:(PSType*) type;
 - (id) initWithName:(NSString*)name type:(PSType*) type andArea:(PSArea*) area;
 
-
 @end

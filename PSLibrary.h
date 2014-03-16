@@ -23,6 +23,13 @@
 @property (nonatomic,readonly,strong) NSMutableSet* pools;
 
 - (id) init;
+- (id) initWithPropertyList;
 - (void) addPool:(PSPool*)pool;
+
+- (NSDictionary*) readPropertyFile;
+- (NSDictionary*) propertyDictionnary;
+- (void) writePropertyFile:(NSDictionary*)pdict toFile:(NSString*)fileName;
+- (void) saveData;
+
 
 @end

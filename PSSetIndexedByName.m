@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self->dico = [NSMutableDictionary dictionary];
+        self->dico = [NSMutableDictionary dictionaryWithCapacity:20];
     }
     return self;
 }
@@ -24,7 +24,7 @@
     if (self) {
         NSMutableArray* keys = [NSMutableArray arrayWithCapacity:[anArray count]];
         for (int i=0;i<[anArray count];i++){
-            [keys insertObject:[(id)[anArray objectAtIndex:i] name] atIndex:i];
+            [keys insertObject:[(id)anArray[i] name] atIndex:i];
         }
         self->dico = [NSMutableDictionary dictionaryWithObjects:anArray forKeys:keys];
     }
@@ -44,12 +44,12 @@
 // Exception thrown: object of this name already present in set
 - (id)addObject:(NSObject<PSObjectWithName>*)object forName:(NSString *)aName{
     
-    if([self->dico objectForKey:aName]!=nil){
+    if(self->dico[aName]!=nil){
         @throw [NSException
                 exceptionWithName:@"add object in set failed" reason:@"object of this name already present in set" userInfo:nil];
     }
     else{
-        [self->dico setObject:object forKey:aName];
+        self->dico[aName] = object;
         [object addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionOld context:nil];
     }
     return object;
@@ -58,8 +58,8 @@
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqual:@"name"]) { // check if change has been done into name property
         // no way to change key, just remove and reinsert object into dictionnary
-        [self->dico removeObjectForKey:[change objectForKey:NSKeyValueChangeOldKey]];
-        [self->dico setObject:object forKey:[object name]];
+        [self->dico removeObjectForKey:change[NSKeyValueChangeOldKey]];
+        self->dico[[object name]] = object;
     }
 }
 
@@ -70,7 +70,7 @@
 // remove object with the given name of the set, remove also self as observer of property name
 // Exception thrown: object of this name not present in set
 - (id)removeObjectForName:(NSString *)aName{
-    id obj=[self->dico objectForKey:aName];
+    id obj=self->dico[aName];
     if(obj==nil){
         @throw [NSException exceptionWithName:@"remove object from set failed" reason:@"object of this name not present in set" userInfo:nil];
     }
@@ -84,7 +84,7 @@
 // Exception thrown: object of this name not present in set
 // Exception thrown: object of this name present in set is not the one to remove
 - (id)removeObject:(id)object forName:(NSString *)aName{
-    id obj=[self->dico objectForKey:aName];
+    id obj=self->dico[aName];
     if(obj==nil){
         @throw [NSException exceptionWithName:@"remove object from set failed" reason:@"object of this name not present in set" userInfo:nil];
     }
@@ -112,11 +112,11 @@
 
 // check if an object with a given name belongs to the set
 - (BOOL)containsObjectForName:(NSString *)aName{
-    return ([self->dico objectForKey:aName] != nil);
+    return (self->dico[aName] != nil);
 }
 // check if a given object with a given name belongs to the set
 - (BOOL)containsObject:(id)object forName:(NSString *)aName{
-    return ([self->dico objectForKey:aName] == object);
+    return (self->dico[aName] == object);
 }
 // check if a given object belongs to the set
 // Exception thrown: object in the set has not the same name
@@ -129,7 +129,7 @@
 
 // return object of name aName contained in the set ; return nil no object of the set has this name
 - (id) objectForName:(NSString*)aName{
-    return [self->dico objectForKey:aName];
+    return self->dico[aName];
 }
 
 // *************************************************************************************
