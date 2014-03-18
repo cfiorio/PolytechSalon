@@ -14,6 +14,7 @@
 #import "PSPool.h"
 #import "PSLibrary.h"
 #import "PSSetIndexedByName.h"
+#import "PSDataDocuments.h"
 
 @interface Polytech_SalonTests : XCTestCase
 
@@ -44,6 +45,7 @@
     // initialization test
     PSArea* area1 = [[PSArea alloc] initWithName:@"IG"];
     XCTAssertEqualObjects(area1.name, @"IG");
+    NSLog(@"area1=%@",area1);
     // initialization with set test
     PSType* aType = [[PSType alloc] initWithName:@"type"];
     NSArray* tabDocs = @[[[PSDocument alloc] initWithName:@"Doc1" andType:aType],
@@ -56,6 +58,7 @@
     XCTAssertEqualObjects([(PSDocument*)[tabDocs objectAtIndex:0] area],area2);
     XCTAssertEqualObjects([(PSDocument*)[tabDocs objectAtIndex:1] area],area2);
     XCTAssertEqualObjects([(PSDocument*)[tabDocs objectAtIndex:2] area],area2);
+    NSLog(@"area2=%@",area2);
 }
 
 - (void)testPSDocumentCreation
@@ -175,6 +178,21 @@
     PSLibrary* myLibrary = [[PSLibrary alloc] initWithPropertyList];
     NSLog(@"myLibrary\n%@\n",myLibrary);
     [myLibrary.docs addObject:[[PSDocument alloc] initWithName:@"Photo STE" type:[myLibrary.types typeOfName:@"Jpeg"] andArea:[myLibrary.areas areaOfName:@"STE"]]];
+    [myLibrary saveData];
+    PSLibrary* myNewLibrary = [[PSLibrary alloc] initWithPropertyList];
+    NSLog(@"myNewLibrary\n%@\n",myNewLibrary);
+}
+
+- (void)testPSAreaObserver
+{
+    PSLibrary* myLibrary = [[PSLibrary alloc] initWithPropertyList];
+    NSLog(@"myLibrary\n%@\n",myLibrary);
+    [myLibrary.docs addObject:[[PSDocument alloc] initWithName:@"Photo STE" type:[myLibrary.types typeOfName:@"Jpeg"] andArea:[myLibrary.areas areaOfName:@"STE"]]];
+    PSDataDocuments* dataDocs = [[PSDataDocuments alloc]initWithAreas:myLibrary.areas];
+    XCTAssertTrue([dataDocs numberOfSections]==[myLibrary.areas count]);
+    PSArea* peip = [[PSArea alloc] initWithName:@"PEIP"];
+    [myLibrary.areas addArea:peip];
+    [myLibrary.docs addObject:[[PSDocument alloc] initWithName:@"Plaquette PEIP" type:[myLibrary.types typeOfName:@"Pdf"] andArea:peip]];
     [myLibrary saveData];
     PSLibrary* myNewLibrary = [[PSLibrary alloc] initWithPropertyList];
     NSLog(@"myNewLibrary\n%@\n",myNewLibrary);
@@ -307,6 +325,48 @@
     [set removeObjectForName:@"new name!"];
     [set removeObjectForName:@"type04"];
 }
+
+- (void)testPSSetOfAreasWithNameInitWithArray
+{
+    PSType* type1 = [[PSType alloc] initWithName:@"type01"];
+    PSType* type2 = [[PSType alloc] initWithName:@"type01"];
+    NSArray* docArray = @[[[PSDocument alloc] initWithName:@"document 0" andType:type1],
+                          [[PSDocument alloc] initWithName:@"document 1" andType:type2],
+                          [[PSDocument alloc] initWithName:@"document 2" andType:type1],
+                          [[PSDocument alloc] initWithName:@"document 3" andType:type2],
+                          [[PSDocument alloc] initWithName:@"document 4" andType:type1],
+                          [[PSDocument alloc] initWithName:@"document 5" andType:type2],
+                          [[PSDocument alloc] initWithName:@"document 6" andType:type1],
+                          [[PSDocument alloc] initWithName:@"document 7" andType:type2]];
+    NSArray* areaArray = @[[[PSArea alloc] initWithName:@"area0" andDocsArray:@[docArray[0],docArray[1],docArray[2]]],
+                           [[PSArea alloc] initWithName:@"area1" andDocsArray:@[docArray[3],docArray[4]]],
+                           [[PSArea alloc] initWithName:@"area2" andDocsArray:@[docArray[5],docArray[6]]],
+                           [[PSArea alloc] initWithName:@"area3" andDocsArray:@[docArray[7]]]];
+    PSSetOfAreas* set = [[PSSetOfAreas alloc] initWithArray:areaArray];
+    XCTAssert(set != nil);
+    XCTAssert([set count]==4);
+    NSArray* names = [set allNames];
+    for (id str in names){
+        NSLog(@"name=%@",str);
+    }
+    NSArray* objects = [set allObjects];
+    XCTAssert([areaArray containsObject:[objects objectAtIndex:0]]);
+    XCTAssert([areaArray containsObject:[objects objectAtIndex:1]]);
+    XCTAssert([areaArray containsObject:[objects objectAtIndex:2]]);
+    XCTAssert([areaArray containsObject:[objects objectAtIndex:3]]);
+    id obj = [set objectForName:@"area2"];
+    XCTAssert(obj==[areaArray objectAtIndex:2]);
+    XCTAssertEqualObjects(obj,[areaArray objectAtIndex:2]);
+    NSArray* sortedObjects = [set sortedArrayByName];
+    for (id o in sortedObjects){
+        XCTAssertTrue([o isKindOfClass:[PSArea class]]);
+    }
+    for (id o in sortedObjects){
+        NSLog(@"name = %@",[o name]);
+    }
+    NSLog(@"%@",set);
+}
+
 
 
 @end

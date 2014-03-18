@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+// objects with a NSString* name property that requires an initWithName:(NSString*) initializer
 @protocol PSObjectWithName <NSObject>
 
 - (id) initWithName:(NSString*)aName;

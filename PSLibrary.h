@@ -22,13 +22,29 @@
 @property (nonatomic,readonly,strong) NSMutableSet* docs;
 @property (nonatomic,readonly,strong) NSMutableSet* pools;
 
+// *************************************************************************************
+
+// base initializer with defaults documents, areas and types
+// define for test purpose, in a final relaease should call the property initializer
 - (id) init;
+// initializer from property file. Should be the one used;
 - (id) initWithPropertyList;
+
+// *************************************************************************************
+
+// add a pool to this library
 - (void) addPool:(PSPool*)pool;
 
+// *************************************************************************************
+// methods managing property files
+
+// read the property file and put data into a NSDictionnary
 - (NSDictionary*) readPropertyFile;
+// create a NSDictionnary from library data ready to be save into a property file
 - (NSDictionary*) propertyDictionnary;
+// write a NSDictionnary pdict (usually created by propertyDictionnary method) to a file with filename name
 - (void) writePropertyFile:(NSDictionary*)pdict toFile:(NSString*)fileName;
+// save all data: call propertyDictionnary and writePropertyFile:toFile methods
 - (void) saveData;
 
 

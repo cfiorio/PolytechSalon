@@ -20,6 +20,7 @@
             [self.docsByAreas insertObject:[NSArray arrayWithArray:[(self.areas)[i] allDocumentsSortedByName]] atIndex:i];
         }
     }
+    [aSetOfAreas addObserver:self];
     return self;
 }
 
@@ -50,5 +51,14 @@
     return [(self.areas)[aSection] numberOfDocuments];
 }
 
+// *************************************************************************************
+// Data Model Observer
+
+- (void)changeIn:(id)source{
+    NSLog(@"added new object %@",source);
+}
+- (void)changeIn:(id)source withName:(NSString*)aName{
+    NSLog(@"added with name %@ new object %@",aName,source);
+}
 
 @end

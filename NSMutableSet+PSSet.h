@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+// *************************************************************************************
+//
+// Category adding the capability of getting a sorted Array of data according to a property
+// this property should be a NSString
+//
 @interface NSMutableSet (PSSet)
 
 - (NSArray*) sortedArrayByPropertyName:(NSString*)propertyName;

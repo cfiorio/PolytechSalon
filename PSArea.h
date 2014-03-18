@@ -12,13 +12,27 @@
 
 @class PSDocument;
 
+// *************************************************************************************
+//
+// class managing an area of document
+//
 @interface PSArea : NSObject<PSObjectWithName>
 
 @property (nonatomic,copy) NSString* name;
 @property (nonatomic,readonly,strong) NSMutableSet*  docsList;
 
+// *************************************************************************************
+// initializers
+
+// base initializer: an area with a name and no documents related
 - (id) initWithName:(NSString*)name;
-- (id) initWithName:(NSString*)name andDocsSet:(NSMutableSet*) list;
+// initializer with a set of document: an area with a name and a set of document that is of this are. This initializer check that each document has the right are
+- (id) initWithName:(NSString*)name andDocsSet:(NSSet*) list;
+// same as the precedent but with an array instead a set
+- (id)initWithName:(NSString *)aName andDocsArray:(NSArray *)list;
+
+
+// *************************************************************************************
 
 // add a document to this area
 // if doc hasn't yet an area, add self as area of this doc
@@ -32,6 +46,7 @@
 // get a sorted by document name of all documents of this area
 - (NSArray*) allDocumentsSortedByName;
 
+// number of documents of this area
 -(NSInteger) numberOfDocuments;
 
 @end

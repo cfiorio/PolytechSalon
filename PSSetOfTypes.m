@@ -11,6 +11,13 @@
 
 @implementation PSSetOfTypes
 
+- (NSString *)description {
+    return [NSString stringWithFormat: @"PSSetOfTypes: %@", self.dico];
+}
+
+// *************************************************************************************
+// initializers
+
 - (id)init
 {
     self = [super init];
@@ -28,7 +35,7 @@
 }
 
 // *************************************************************************************
-// Add (PSDocTypes*) in set
+// Add (PSTypes*) in set
 
 // add a PSType into the set
 - (void)addType:(PSType*) aType{
@@ -44,7 +51,7 @@
 }
 
 // *************************************************************************************
-// remove (PSDocTypes*) in set
+// remove (PSTypes*) in set
 
 // remove PSType with the given name of the set
 // return PSType removed

@@ -9,8 +9,20 @@
 #import "PSArea.h"
 #import "PSDocument.h"
 
+// *************************************************************************************
+//
+// class managing an area of document
+//
 @implementation PSArea
 
+- (NSString *)description {
+    return [NSString stringWithFormat: @"PSArea: Name=%@ - %d Documents : %@", self.name,[self.docsList count], self.docsList];
+}
+
+// *************************************************************************************
+// initializers
+
+// base initializer: an area with a name and no documents related
 - (id)initWithName:(NSString *)aName
 {
     self = [super init];
@@ -20,6 +32,8 @@
     }
     return self;
 }
+
+// initializer with a set of document: an area with a name and a set of document that is of this are. This initializer check that each document has the right are
 - (id)initWithName:(NSString *)aName andDocsSet:(NSSet *)list
 {
     self = [self initWithName:aName];
@@ -30,16 +44,20 @@
     }
     return self;
 }
+
+// initializer with a set of document: an area with a name and a set of document that is of this are. This initializer check that each document has the right are
 - (id)initWithName:(NSString *)aName andDocsArray:(NSArray *)list
 {
     self = [self initWithName:aName];
     if (self) {
         for(PSDocument* doc in list){
-            [self addDocument:doc];
+            [self addDocument:doc]; // check is done by addDocument
         }
     }
     return self;
 }
+
+// *************************************************************************************
 
 // add a document to this area
 // if doc hasn't yet an area, add self as area of this doc
@@ -73,6 +91,7 @@
     return [self.docsList sortedArrayByPropertyName:@"name"];
 }
 
+// number of documents of this area
 -(NSInteger) numberOfDocuments{
     return [self.docsList count];
 }

@@ -9,7 +9,20 @@
 #import "PSSetOfAreas.h"
 #import "PSArea.h"
 
+// *************************************************************************************
+//
+// class managing a set of areas
+// areas are indexed by their names
+// is objserver of area name property to change indexing accordingly to name changes
+//
 @implementation PSSetOfAreas
+
+- (NSString *)description {
+    return [NSString stringWithFormat: @"PSSetOfAreas: %@", self.dico];
+}
+
+// *************************************************************************************
+// initializers
 
 - (id)init
 {
@@ -45,7 +58,7 @@
 
 
 // *************************************************************************************
-// remove (PSDocTypes*) in set
+// remove (PSArea*) in set
 
 
 // remove PSArea with the given name of the set
@@ -66,7 +79,6 @@
 
 // *************************************************************************************
 // contains
-
 
 // check if a given PSArea belongs to the set
 - (BOOL)containsArea:(PSArea *)anArea{

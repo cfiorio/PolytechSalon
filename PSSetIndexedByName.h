@@ -8,16 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "PSObjectWithName.h"
+#import "CFModelObserved.h"
+#import "CFDefaultModelObserved.h"
 
 // set of objects with a name property
 // set is indexed and objects can be retrieved by their name
 // if name property of an object belonging to the set is changed, then index is change accordingly
 // as object are observed by the set, you should remove them or clean the set before deleting it in order to avoid memory leak
 // object into the set must conform to PSObjectWithName protocol
-@interface PSSetIndexedByName : NSObject
+@interface PSSetIndexedByName : NSObject<CFModelObserved>
 {
-    @private NSMutableDictionary* dico;
+    //    @private NSMutableDictionary* dico;
+    @private CFDefaultModelObserved* _dataModelDelegate;
 }
+
+@property NSMutableDictionary* dico;
 
 - (id) init;
 - (id) initWithArray:(NSArray*)anArray;
@@ -83,5 +88,13 @@
 
 // remove all object of the set; useful to unregister observers
 - (void) empty;
+
+// *************************************************************************************
+
+- (void)addObserver:(id<CFObserver>) observer;
+- (void)removeObserver:(id<CFObserver>) observer;
+- (void)postNotification;
+- (void)postNotificationWithName:(NSString*)aName;
+
 
 @end

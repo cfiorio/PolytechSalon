@@ -10,11 +10,23 @@
 #import "PSSetIndexedByName.h"
 #import "PSType.h"
 
+// *************************************************************************************
+//
+// class managing a set of types
+// types are indexed by their names
+// is observer of area name property to change indexing accordingly to name changes
+//
 @interface PSSetOfTypes : PSSetIndexedByName
+
+// *************************************************************************************
+// initializers
 
 - (id) init;
 - (id) initWithArray:(NSArray*)anArray;
 - (id) initWithSet:(NSSet*)aSet;
+
+// *************************************************************************************
+// Add (PSType*) in set
 
 // add a PSType into the set
 - (void)addType:(PSType*) aType;
@@ -22,6 +34,8 @@
 // return the newly created PSType
 - (PSType*) addTypeOfName:(NSString*)aName;
 
+// *************************************************************************************
+// remove (PSTypes*) in set
 
 // remove PSType with the given name of the set
 // return PSType removed
@@ -35,11 +49,17 @@
 - (PSType*)removeType:(PSType*) aType;
 
 
+// *************************************************************************************
+// contains
+
 // check if a given PSType belongs to the set
 - (BOOL)containsType:(PSType*) aType;
 // check if a PSType with aName belongs to the set
 - (BOOL)containsTypeOfName:(NSString*)aName;
 
+
+// *************************************************************************************
+// get
 
 // return PSType of name aName contained in the set ; return nil no PSType of the set has this name
 - (PSType*) typeOfName:(NSString*)aName;
